@@ -8,16 +8,16 @@ using System.Web;
 /// <summary>
 /// Summary description for ExcelReader
 /// </summary>
-public class ExcelReader
+internal class ExcelReader
 {
-    public ExcelReader()
+    internal ExcelReader()
     {
         //
         // TODO: Add constructor logic here
         //
     }
 
-    public DataSet ReadExcelFile(ExcelReaderRequest excelReaderRequest)
+    internal DataSet ReadExcelFile(ExcelReaderRequest excelReaderRequest)
     {
         try
         {

@@ -1,6 +1,5 @@
 C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netcoreapp3.1\DirectoryFileReader.deps.json
 C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netcoreapp3.1\DirectoryFileReader.dll
-C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.csprojAssemblyReference.cache
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.AssemblyInfoInputs.cache
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.AssemblyInfo.cs
 C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netcoreapp3.1\DirectoryFileReader.pdb

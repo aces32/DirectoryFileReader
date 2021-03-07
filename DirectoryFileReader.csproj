@@ -1,12 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>Reads Excel or CSV Files from a specified directory and returns a validated json result from the files that can be easily inserted into a datatable</Description>
+    <PackageIcon>download.png</PackageIcon>
+    <RepositoryUrl>https://github.com/aces32/DirectoryFileReader</RepositoryUrl>
+    <RepositoryType>Public</RepositoryType>
+    <PackageTags>C#, Directory, FileReader,ReadFiles, Excel, Csv,DirectoryFileReader</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Data.OleDb" Version="5.0.0" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Documents\download.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+        <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+   </ItemGroup>
 
 </Project>

@@ -6,9 +6,9 @@ using System.Text;
 
 namespace DirectoryFileReader.CSV
 {
-    public class CSVReader
+    internal class CSVReader
     {
-        public DataSet ConvertCSVtoDataTable(string strFilePath)
+        internal DataSet ConvertCSVtoDataTable(string strFilePath)
         {
             DataSet dataSet = new DataSet();
             DataTable dt = new DataTable();

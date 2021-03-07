@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 
 namespace DirectoryFileReader
 {
-    public static class FileInformation
+    internal static class FileInformation
     {
-        public static FileInformationResponse GetFileInformation(FileInformationRequest  fileInformation)
+        internal static FileInformationResponse GetFileInformation(FileInformationRequest  fileInformation)
         {
             var filename = Path.GetFileNameWithoutExtension(fileInformation.File);
             var filenamext = Path.GetFileName(fileInformation.File);
@@ -41,7 +41,7 @@ namespace DirectoryFileReader
         }
 
 
-        public static bool ValidateAndCopyFile(string directory, string initialfile, string newFileDirectory)
+        internal static bool ValidateAndCopyFile(string directory, string initialfile, string newFileDirectory)
         {
             if (!(Directory.Exists(directory)))
             {
@@ -59,7 +59,7 @@ namespace DirectoryFileReader
             return true;
         }
 
-        public static bool ValidateAndMoveFile(string directory, string initialfile, string newFileDirectory)
+        internal static bool ValidateAndMoveFile(string directory, string initialfile, string newFileDirectory)
         {
             if (!(Directory.Exists(directory)))
             {
@@ -77,7 +77,7 @@ namespace DirectoryFileReader
             return true;
         }
 
-        public static T ValidateAndGetExcelRecord<T>(DataRow dr)
+        internal static T ValidateAndGetExcelRecord<T>(DataRow dr)
         {
             Type temp = typeof(T);
             T obj = Activator.CreateInstance<T>();
@@ -95,13 +95,13 @@ namespace DirectoryFileReader
             return obj;
         }
 
-        public static List<DataRow> ValidateAndGetExcelRecord(DataTable dt)
+        internal static List<DataRow> ValidateAndGetExcelRecord(DataTable dt)
         {
             IEnumerable<DataRow> sequence = dt.AsEnumerable();
             return sequence.ToList();
         }
 
-        public static bool ValidFileType(string fileExtension)
+        internal static bool ValidFileType(string fileExtension)
         {
             string availableReadExtensions = ".XLS,.XLSX,.CSV";
             if (availableReadExtensions.Split(',').Contains(fileExtension))
@@ -115,7 +115,7 @@ namespace DirectoryFileReader
 
         }
 
-        public static DataSet ReadFileData(FileInformationResponse fileInfo)
+        internal static DataSet ReadFileData(FileInformationResponse fileInfo)
         {
             DataSet excelOrCsvData = new DataSet();
 

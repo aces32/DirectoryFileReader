@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace DirectoryFileReader
 {
-    public class MaxAdvanceFile
+    public class ReadFileFromDirectory
     {
 
         public ReadFileResponse ProcessNewFiles(string FolderPath)
