@@ -15,19 +15,28 @@ var read = readFileFromDirectory.ProcessNewFiles("C//local");
 Returns a result of read
 
 {
-"ProcessedFileCount": 1,
-"UnProcessedFileCount": 0,
-"ProcessFileInformation": [
-{
-"ProcessedFileName": "Test",
-"ProcessedFileData": "[{"TestNAme":"Kuploader","NewLimit":20000.0}]"
-}
-],
-"UnProcessFileInformation": [],
-"AllFileSuccessFullyRead": {
-"AllFileWasRead": true,
-"AllFileWasReadResponse": "Success"
-}
+  "ProcessedFileCount": 2,
+  "UnProcessedFileCount": 1,
+  "ProcessFileInformation": [
+    {
+      "ProcessedFileName": "LimitTemplate - Copy",
+      "ProcessedFileData": "[{\"User_Name\":\"DFDGR\",\"NewFXLimit\":1000.0}]"
+    },
+    {
+      "ProcessedFileName": "LimitTemplate2",
+      "ProcessedFileData": "[{\"User_Name\":\"Kuploader\",\"NewFXLimit\":20000.0},{\"User_Name\":\"DFDG\",\"NewFXLimit\":1000.0}]"
+    }
+  ],
+  "UnProcessFileInformation": [
+    {
+      "UnProcessedFileName": "LimitTemplate2 - Copy",
+      "UnProccessedFileError": "No data exist for the specified file name"
+    }
+  ],
+  "AllFileSuccessFullyRead": {
+    "AllFileWasRead": true,
+    "AllFileWasReadResponse": "Success"
+  }
 }
 
 Where
