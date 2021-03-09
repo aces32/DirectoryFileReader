@@ -6,3 +6,4 @@ C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netcoreapp3.1\DirectoryF
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.dll
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.pdb
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.csproj.CoreCompileInputs.cache
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netcoreapp3.1\DirectoryFileReader.csprojAssemblyReference.cache

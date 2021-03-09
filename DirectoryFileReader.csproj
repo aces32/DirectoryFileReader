@@ -9,6 +9,7 @@
     <PackageTags>C#, Directory, FileReader,ReadFiles, Excel, Csv,DirectoryFileReader</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+	<Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +25,7 @@
   </ItemGroup>
   
   <ItemGroup>
-        <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt"/>
+        <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
    </ItemGroup>
 
 </Project>
