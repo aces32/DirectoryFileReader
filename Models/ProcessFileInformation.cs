@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DirectoryFileReader.Models
 {
-    public class ProcessFileInformation
+    public partial class ProcessFileInformation
     {
         /// <summary>
         /// Processed FileName

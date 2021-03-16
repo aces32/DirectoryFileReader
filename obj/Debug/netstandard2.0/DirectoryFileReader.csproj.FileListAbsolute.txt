@@ -1,0 +1,9 @@
+C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netstandard2.0\DirectoryFileReader.deps.json
+C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netstandard2.0\DirectoryFileReader.dll
+C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netstandard2.0\DirectoryFileReader.pdb
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.AssemblyInfoInputs.cache
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.AssemblyInfo.cs
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.csproj.CoreCompileInputs.cache
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.dll
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.pdb
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.csprojAssemblyReference.cache

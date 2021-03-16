@@ -95,11 +95,11 @@ namespace DirectoryFileReader
             return obj;
         }
 
-        internal static List<DataRow> ValidateAndGetExcelRecord(DataTable dt)
-        {
-            IEnumerable<DataRow> sequence = dt.AsEnumerable();
-            return sequence.ToList();
-        }
+        //internal static List<DataRow> ValidateAndGetExcelRecord(DataTable dt)
+        //{
+        //    IEnumerable<DataRow> sequence = dt.AsEnumerable();
+        //    return sequence.ToList();
+        //}
 
         internal static bool ValidFileType(string fileExtension)
         {

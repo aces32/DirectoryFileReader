@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DirectoryFileReader</id>
+    <version>1.0.2</version>
+    <authors>DirectoryFileReader</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="file">LICENSE.txt</license>
+    <licenseUrl>https://aka.ms/deprecateLicenseUrl</licenseUrl>
+    <icon>download.png</icon>
+    <description>Reads Excel or CSV Files from a specified directory and returns a validated json result from the files that can be easily inserted into a datatable</description>
+    <tags>C#, Directory, FileReader,ReadFiles, Excel, Csv,DirectoryFileReader</tags>
+    <repository type="Public" url="https://github.com/aces32/DirectoryFileReader" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.5">
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.6">
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework="net5.0">
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Data.OleDb" version="6.0.0-preview.1.21102.12" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Data.OleDb" version="6.0.0-preview.1.21102.12" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net45\DirectoryFileReader.dll" target="lib\net45\DirectoryFileReader.dll" />
+    <file src="C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net46\DirectoryFileReader.dll" target="lib\net46\DirectoryFileReader.dll" />
+    <file src="C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net5.0\DirectoryFileReader.dll" target="lib\net5.0\DirectoryFileReader.dll" />
+    <file src="C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\netstandard2.0\DirectoryFileReader.dll" target="lib\netstandard2.0\DirectoryFileReader.dll" />
+    <file src="C:\Users\Ayo\Documents\download.png" target="download.png" />
+    <file src="C:\Users\Ayo\source\repos\DirectoryFileReader\licenses\LICENSE.txt" target="LICENSE.txt" />
+  </files>
+</package>

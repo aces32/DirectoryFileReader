@@ -1,0 +1,9 @@
+C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net46\DirectoryFileReader.dll
+C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net46\DirectoryFileReader.pdb
+C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net46\Newtonsoft.Json.dll
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net46\DirectoryFileReader.AssemblyInfoInputs.cache
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net46\DirectoryFileReader.AssemblyInfo.cs
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net46\DirectoryFileReader.csproj.CoreCompileInputs.cache
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net46\DirectoryFileReader.csproj.CopyComplete
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net46\DirectoryFileReader.dll
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net46\DirectoryFileReader.pdb

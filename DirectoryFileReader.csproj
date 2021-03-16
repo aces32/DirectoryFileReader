@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net5.0</TargetFramework>
+	<TargetFrameworks>netstandard2.0;net45;net46;net5.0</TargetFrameworks>
     <Description>Reads Excel or CSV Files from a specified directory and returns a validated json result from the files that can be easily inserted into a datatable</Description>
     <PackageIcon>download.png</PackageIcon>
     <RepositoryUrl>https://github.com/aces32/DirectoryFileReader</RepositoryUrl>
@@ -9,12 +10,11 @@
     <PackageTags>C#, Directory, FileReader,ReadFiles, Excel, Csv,DirectoryFileReader</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-	<Version>1.0.1</Version>
+	<Version>1.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="System.Data.OleDb" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,5 +27,17 @@
   <ItemGroup>
         <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="LICENSE.txt" />
    </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="System.Data.OleDb">
+      <Version>6.0.0-preview.1.21102.12</Version>
+    </PackageReference>
+  </ItemGroup>
+  
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="System.Data.OleDb">
+      <Version>6.0.0-preview.1.21102.12</Version>
+    </PackageReference>
+  </ItemGroup>
 
 </Project>

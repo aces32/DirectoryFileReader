@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DirectoryFileReader.Models
 {
-    public class AllFileSuccessFullyRead
+    public partial class AllFileSuccessFullyRead
     {
         public bool AllFileWasRead { get; set; }
         public string AllFileWasReadResponse { get; set; }

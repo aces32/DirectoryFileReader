@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DirectoryFileReader.Models
 {
-    public class UnProcessedFileInformation
+    public partial class UnProcessedFileInformation
     {
         /// <summary>
         /// Unprocessed File Name

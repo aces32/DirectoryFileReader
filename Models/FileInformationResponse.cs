@@ -1,6 +1,6 @@
 ﻿namespace DirectoryFileReader.Models
 {
-    public class FileInformationResponse
+    internal class FileInformationResponse
     {
         public string Filename { get; set; }
         public string Filenamext { get; set; }
