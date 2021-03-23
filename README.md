@@ -2,7 +2,7 @@
 Reads Excel or CSV Files from a specified directory and returns a validated json result that can be easily inserted into a datatable  
 
 ## Usage
-Take the following step:
+Take the following steps:
 1. Initialize the class
 
 ```
