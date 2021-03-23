@@ -1,19 +1,19 @@
 # DirectoryFileReader
 Reads Excel or CSV Files from a specified directory and returns a validated json result that can be easily inserted into a datatable  
 
+## Usage
+Take the following step:
+1. Initialize the class
 
-Take the following step
-
-
+```
 ReadFileFromDirectory readFileFromDirectory = new ReadFileFromDirectory();
-
-Reads file from directory specified
-
-
+```
+2. Read file from specified directory
+```
 var read = readFileFromDirectory.ProcessNewFiles("C//local");
-
-Returns a result of read
-
+```
+3. Returns a result of read
+```
 {
   "ProcessedFileCount": 2,
   "UnProcessedFileCount": 1,
@@ -38,27 +38,17 @@ Returns a result of read
     "AllFileWasReadResponse": "Success"
   }
 }
+```
 
-Where
-processfilecount = total amount of processed file
+Where:
+- processfilecount = total amount of processed file
+- UnProcessedFileCount = total amount of unprocessed file
+- ProcessedFileName = name of each processed file on the directory
+- ProcessedFileData = data of each processed file on the directory
+- UnProcessedFileName = name of each file on the directory
+- UnProccessedFileError = reason File was not processed
+- AllFileWasRead = validate all file was read
 
-
-UnProcessedFileCount = total amount of unprocessed file
-
-
-ProcessedFileName = name of each processed file on the directory
-
-
-ProcessedFileData = data of each processed file on the directory
-
-
-UnProcessedFileName = name of each file on the directory
-
-
-UnProccessedFileError = reason File was not processed
-
-
-AllFileWasRead = validate all file was read
-
-Note:- only xls, xlsx and csv files can be currently read
+## Note
+Only **xls**, **xlsx**, and **csv** files are currently supported
 
