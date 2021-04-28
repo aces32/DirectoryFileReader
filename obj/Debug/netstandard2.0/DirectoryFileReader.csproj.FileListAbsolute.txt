@@ -6,4 +6,3 @@ C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\Directory
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.csproj.CoreCompileInputs.cache
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.dll
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.pdb
-C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\netstandard2.0\DirectoryFileReader.csprojAssemblyReference.cache

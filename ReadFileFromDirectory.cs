@@ -20,7 +20,6 @@ namespace DirectoryFileReader
         {
             try
             {
-                string day = DateTime.Now.ToString("dd-MM-yy", CultureInfo.CreateSpecificCulture("en-GB"));
                 var myFiles = Directory.GetFiles(FolderPath, "*", SearchOption.TopDirectoryOnly);
                 if (myFiles.Length != 0)
                 {
@@ -29,6 +28,7 @@ namespace DirectoryFileReader
                     int fileUnProcessedCount = 0;
                     List<ProcessFileInformation> processFileInformation = new List<ProcessFileInformation>();
                     List<UnProcessedFileInformation> unProcessedFileInformation = new List<UnProcessedFileInformation>();
+                    string day = DateTime.Now.ToString("dd-MM-yy", CultureInfo.CreateSpecificCulture("en-GB"));
 
                     foreach (string file in myFiles)
                     {

@@ -86,7 +86,7 @@ internal class ExcelReader
 
             return transrows;
         }
-        catch (Exception ex)
+        catch (Exception)
         {
             return null;
         }

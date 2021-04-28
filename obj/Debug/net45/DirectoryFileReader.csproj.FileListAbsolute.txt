@@ -7,3 +7,4 @@ C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReade
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReader.csproj.CopyComplete
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReader.dll
 C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReader.pdb
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReader.csprojAssemblyReference.cache
