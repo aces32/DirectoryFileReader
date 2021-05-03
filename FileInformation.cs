@@ -13,7 +13,7 @@ namespace DirectoryFileReader
 {
     internal static class FileInformation
     {
-        internal static FileInformationResponse GetFileInformation(FileInformationRequest  fileInformation)
+        internal static FileInformationResponse GetFileInformation(FileInformationRequest fileInformation)
         {
             var filename = Path.GetFileNameWithoutExtension(fileInformation.File);
             var filenamext = Path.GetFileName(fileInformation.File);
@@ -58,6 +58,20 @@ namespace DirectoryFileReader
 
             return true;
         }
+
+        public static async Task CopyFileAsync(string sourceFile, string destinationFile)
+        {
+            using (var sourceStream = new FileStream(sourceFile, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, FileOptions.Asynchronous | FileOptions.SequentialScan))
+            using (var destinationStream = new FileStream(destinationFile, FileMode.CreateNew, FileAccess.Write, FileShare.None, 4096, FileOptions.Asynchronous | FileOptions.SequentialScan))
+                await sourceStream.CopyToAsync(destinationStream);
+        }
+
+        //public static async Task MoveFileAsync(string sourceFile, string destinationFile)
+        //{
+        //    using (var sourceStream = new FileStream(sourceFile, FileMode.Open, FileAccess.Read, FileShare.Read, 4096, FileOptions.Asynchronous | FileOptions.SequentialScan))
+        //    using (var destinationStream = new FileStream(destinationFile, FileMode.CreateNew, FileAccess.Write, FileShare.None, 4096, FileOptions.Asynchronous | FileOptions.SequentialScan))
+        //        await sourceStream.c(destinationStream);
+        //}
 
         internal static bool ValidateAndMoveFile(string directory, string initialfile, string newFileDirectory)
         {
@@ -138,6 +152,32 @@ namespace DirectoryFileReader
             return excelOrCsvData;
         }
 
+
+        internal static async Task<DataSet> ReadFileDataAsync(FileInformationResponse fileInfo)
+        {
+            DataSet excelOrCsvData = new DataSet();
+
+            if (fileInfo.Extension.ToUpper().CompareTo(".CSV") == 0)
+            {
+                CSVReader cSVReader = new CSVReader();
+                excelOrCsvData = await cSVReader.ConvertCSVtoDataTableAsync(fileInfo.SplitedpathFile);
+            }
+            else
+            {
+                //Read Excel File
+                ExcelReader excelReader = new ExcelReader();
+                excelOrCsvData = await Task.Run(() =>
+                                            {
+                                                return excelReader.ReadExcelFile(new ExcelReaderRequest
+                                                {
+                                                    FileExtensiion = fileInfo.Extension,
+                                                    FilePath = fileInfo.SplitedpathFile
+                                                });
+                                            });
+            }
+
+            return excelOrCsvData;
+        }
 
 
     }

@@ -9,6 +9,7 @@
       "DirectoryFileReader/1.0.2": {
         "dependencies": {
           "Newtonsoft.Json": "12.0.3",
+          "Spire.XLS": "11.4.0",
           "System.Data.OleDb": "6.0.0-preview.1.21102.12"
         },
         "runtime": {
@@ -60,6 +61,27 @@
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "Spire.XLS/11.4.0": {
+        "dependencies": {
+          "System.Drawing.Common": "6.0.0-preview.1.21102.12",
+          "System.Security.Cryptography.Xml": "5.0.0",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/Spire.License.dll": {
+            "assemblyVersion": "1.3.8.320",
+            "fileVersion": "1.3.8.320"
+          },
+          "lib/net5.0/Spire.Pdf.dll": {
+            "assemblyVersion": "7.3.7.0",
+            "fileVersion": "7.3.7.2320"
+          },
+          "lib/net5.0/Spire.XLS.dll": {
+            "assemblyVersion": "11.4.0.0",
+            "fileVersion": "11.4.0.6320"
           }
         }
       },
@@ -144,6 +166,7 @@
           }
         }
       },
+      "System.Formats.Asn1/5.0.0": {},
       "System.Security.AccessControl/6.0.0-preview.1.21102.12": {
         "dependencies": {
           "System.Security.Principal.Windows": "6.0.0-preview.1.21102.12"
@@ -163,6 +186,31 @@
           }
         }
       },
+      "System.Security.Cryptography.Cng/5.0.0": {
+        "dependencies": {
+          "System.Formats.Asn1": "5.0.0"
+        }
+      },
+      "System.Security.Cryptography.Pkcs/5.0.0": {
+        "dependencies": {
+          "System.Formats.Asn1": "5.0.0",
+          "System.Security.Cryptography.Cng": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Security.Cryptography.Pkcs.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netcoreapp3.0/System.Security.Cryptography.Pkcs.dll": {
+            "rid": "win",
+            "assetType": "runtime",
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
+          }
+        }
+      },
       "System.Security.Cryptography.ProtectedData/6.0.0-preview.1.21102.12": {
         "runtime": {
           "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
@@ -176,6 +224,18 @@
             "assetType": "runtime",
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.10212"
+          }
+        }
+      },
+      "System.Security.Cryptography.Xml/5.0.0": {
+        "dependencies": {
+          "System.Security.Cryptography.Pkcs": "5.0.0",
+          "System.Security.Permissions": "6.0.0-preview.1.21102.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.Xml.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.20.51904"
           }
         }
       },
@@ -211,6 +271,11 @@
             "assemblyVersion": "6.0.0.0",
             "fileVersion": "6.0.21.10212"
           }
+        }
+      },
+      "System.Text.Encoding.CodePages/5.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "6.0.0-preview.1.21102.12"
         }
       },
       "System.Windows.Extensions/6.0.0-preview.1.21102.12": {
@@ -268,6 +333,13 @@
       "path": "newtonsoft.json/12.0.3",
       "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
+    "Spire.XLS/11.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-47ZcCJ7XUxoZjuKa+fgqzsjouNFq8edTB67+mqaDDzDklkavNrNqHRksHzMB7uOF/Ggi6a+HrB50J0M8PRyQOQ==",
+      "path": "spire.xls/11.4.0",
+      "hashPath": "spire.xls.11.4.0.nupkg.sha512"
+    },
     "System.Configuration.ConfigurationManager/6.0.0-preview.1.21102.12": {
       "type": "package",
       "serviceable": true,
@@ -296,6 +368,13 @@
       "path": "system.drawing.common/6.0.0-preview.1.21102.12",
       "hashPath": "system.drawing.common.6.0.0-preview.1.21102.12.nupkg.sha512"
     },
+    "System.Formats.Asn1/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MTvUIktmemNB+El0Fgw9egyqT9AYSIk6DTJeoDSpc3GIHxHCMo8COqkWT1mptX5tZ1SlQ6HJZ0OsSvMth1c12w==",
+      "path": "system.formats.asn1/5.0.0",
+      "hashPath": "system.formats.asn1.5.0.0.nupkg.sha512"
+    },
     "System.Security.AccessControl/6.0.0-preview.1.21102.12": {
       "type": "package",
       "serviceable": true,
@@ -303,12 +382,33 @@
       "path": "system.security.accesscontrol/6.0.0-preview.1.21102.12",
       "hashPath": "system.security.accesscontrol.6.0.0-preview.1.21102.12.nupkg.sha512"
     },
+    "System.Security.Cryptography.Cng/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jIMXsKn94T9JY7PvPq/tMfqa6GAaHpElRDpmG+SuL+D3+sTw2M8VhnibKnN8Tq+4JqbPJ/f+BwtLeDMEnzAvRg==",
+      "path": "system.security.cryptography.cng/5.0.0",
+      "hashPath": "system.security.cryptography.cng.5.0.0.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Pkcs/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9TPLGjBCGKmNvG8pjwPeuYy0SMVmGZRwlTZvyPHDbYv/DRkoeumJdfumaaDNQzVGMEmbWtg07zUpSW9q70IlDQ==",
+      "path": "system.security.cryptography.pkcs/5.0.0",
+      "hashPath": "system.security.cryptography.pkcs.5.0.0.nupkg.sha512"
+    },
     "System.Security.Cryptography.ProtectedData/6.0.0-preview.1.21102.12": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-COPTZGmWa8p9u3aRHhTyX7f9SlWRiv+WMMt7MHrA9YdWxh3TDypMDMAXn+drlHw0u+kk9+NzO2hVn99+87zE6w==",
       "path": "system.security.cryptography.protecteddata/6.0.0-preview.1.21102.12",
       "hashPath": "system.security.cryptography.protecteddata.6.0.0-preview.1.21102.12.nupkg.sha512"
+    },
+    "System.Security.Cryptography.Xml/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MYmkHtCW+paFmPGFDktnLdOeH3zUrNchbZNki87E1ejNSMm9enSRbJokmvFrsWUrDE4bRE1lVeAle01+t6SGhA==",
+      "path": "system.security.cryptography.xml/5.0.0",
+      "hashPath": "system.security.cryptography.xml.5.0.0.nupkg.sha512"
     },
     "System.Security.Permissions/6.0.0-preview.1.21102.12": {
       "type": "package",
@@ -323,6 +423,13 @@
       "sha512": "sha512-2QE5BJwp0SHC6KAb/NYf6HzaVXN3oqEIe+JYiwCNuF8mcOb81WOc1XP5i8LmqAcTFrMlF41fi+JVgnV3w/n13A==",
       "path": "system.security.principal.windows/6.0.0-preview.1.21102.12",
       "hashPath": "system.security.principal.windows.6.0.0-preview.1.21102.12.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
+      "path": "system.text.encoding.codepages/5.0.0",
+      "hashPath": "system.text.encoding.codepages.5.0.0.nupkg.sha512"
     },
     "System.Windows.Extensions/6.0.0-preview.1.21102.12": {
       "type": "package",

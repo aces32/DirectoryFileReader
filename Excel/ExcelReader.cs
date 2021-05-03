@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spire.Xls;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -10,6 +11,7 @@ using System.Web;
 /// </summary>
 internal class ExcelReader
 {
+
     internal ExcelReader()
     {
         //
@@ -31,10 +33,11 @@ internal class ExcelReader
             {
                 connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + excelReaderRequest.FilePath + @";Extended Properties=""Excel 12.0 Xml;HDR=YES;IMEX=1""";
             }
-
+#pragma warning disable CA1416 // Validate platform compatibility
             OleDbConnection connection = new OleDbConnection(connectionString);
             OleDbDataAdapter adapter = new OleDbDataAdapter();
             OleDbCommand selectCommand = new OleDbCommand();
+
 
             connection.Open();
 
@@ -57,6 +60,7 @@ internal class ExcelReader
             String selectstr = "select ";
 
             DataRow drc; Object[] temparr;
+
             for (int jj = 0; jj <= fieldcount - 1; jj++)
             {
                 //DataRow drc = columns.Rows[jj];
@@ -78,6 +82,7 @@ internal class ExcelReader
 
             selectCommand.Connection = connection;
 
+
             adapter.SelectCommand = selectCommand;
 
             DataSet transrows = new DataSet();
@@ -85,6 +90,7 @@ internal class ExcelReader
             adapter.Fill(transrows, item1);
 
             return transrows;
+
         }
         catch (Exception)
         {
@@ -94,4 +100,5 @@ internal class ExcelReader
 
     }
 
+#pragma warning restore CA1416 // Validate platform compatibility
 }
