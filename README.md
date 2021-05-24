@@ -11,6 +11,11 @@ ReadFileFromDirectory readFileFromDirectory = new ReadFileFromDirectory();
 2. Read file from specified directory
 ```
 var read = readFileFromDirectory.ProcessNewFiles("C//local");
+
+You can also use the asynchronous method
+
+var read = await readFileFromDirectory.ProcessNewFilesAsync("C//local");
+
 ```
 3. Returns a result of read
 ```
@@ -50,5 +55,7 @@ Where:
 - AllFileWasRead = validate all file was read
 
 ## Note
-Only **xls**, **xlsx**, and **csv** files are currently supported
+Only **xls**, **xlsx**, and **csv** files are currently supported.
+Also ensure Microsoft Access Database Engine 2010 Redistributable is installed on your container 
+URL - https://www.microsoft.com/en-us/download/Confirmation.aspx?ID=13255
 
