@@ -1,26 +1,30 @@
-﻿using DirectoryFileReader.CSV;
+﻿using DirectoryFileReader.Interfaces;
 using DirectoryFileReader.Models;
+using DirectoryFileReader.Services;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DirectoryFileReader
 {
-    public class ReadFileFromDirectory
+    public class ReadFileFromDirectory : IReadFileFromDirectory
     {
+        private readonly IUnitOfWork unitOfWork;
 
-        public ReadFileResponse ProcessNewFiles(string FolderPath)
+        public ReadFileFromDirectory()
+        {
+            this.unitOfWork = (IUnitOfWork)Activator
+                            .CreateInstance(typeof(UnitOfWork));
+        }
+
+        public ReadFileResponse ProcessNewFiles(string folderPath)
         {
             try
             {
-                var myFiles = Directory.GetFiles(FolderPath, "*", SearchOption.TopDirectoryOnly);
+                var myFiles = Directory.GetFiles(folderPath, "*", SearchOption.TopDirectoryOnly);
                 if (myFiles.Length != 0)
                 {
                     string fileData = string.Empty;
@@ -32,17 +36,20 @@ namespace DirectoryFileReader
 
                     foreach (string file in myFiles)
                     {
-                        var fileInfo = FileInformation.GetFileInformation(new FileInformationRequest
+                        var fileInfo = unitOfWork.FileInformation.GetFileInformation(new FileInformationRequest
                         {
                             Day = day,
                             File = file,
-                            File_path = FolderPath
+                            File_path = folderPath
                         });
 
-                        if (FileInformation.ValidateAndCopyFile(fileInfo.Splitedpath, file , fileInfo.SplitedpathFile)) // Move file to a specific directory for Processing
+                        if (unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.Splitedpath) &&
+                            unitOfWork.CopyFiles.CopyFile(file, fileInfo.SplitedpathFile)) // Move file to a specific directory for Processing
                         {
-                            if (FileInformation.ValidFileType(fileInfo.Extension))
+                            if (!unitOfWork.ValidateFile.ValidFileType(fileInfo.Extension))
                             {
+                                unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                                unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                                 unProcessedFileInformation.Add(new UnProcessedFileInformation
                                 {
                                     UnProccessedFileError = "File type in the specified directory must be .XLS,.XLSX,.CSV",
@@ -53,7 +60,7 @@ namespace DirectoryFileReader
                             }
 
 
-                            var excelOrCsvData = FileInformation.ReadFileData(fileInfo);
+                            var excelOrCsvData = unitOfWork.FileData.ReadFileData(fileInfo);
                             if (excelOrCsvData.Tables.Count > 0)
                             {
                                 if (excelOrCsvData.Tables[0].Rows.Count > 0)
@@ -65,14 +72,16 @@ namespace DirectoryFileReader
                                         ProcessedFileData = fileData,
                                         ProcessedFileName = fileInfo.Filename
                                     });
-                                    FileInformation.ValidateAndMoveFile(fileInfo.Processedpath, file, fileInfo.ProcessedpathFile);
+                                    unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.Processedpath);
+                                    unitOfWork.MoveFiles.MoveFile(file, fileInfo.ProcessedpathFile);
                                     fileProcessedCount++;
                                 }
                                 else
                                 {
-                                    FileInformation.ValidateAndMoveFile(fileInfo.UnProcessedpath, file, fileInfo.UnProcessedpathFile);
-                                    unProcessedFileInformation.Add(new UnProcessedFileInformation 
-                                    { 
+                                    unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                                    unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
+                                    unProcessedFileInformation.Add(new UnProcessedFileInformation
+                                    {
                                         UnProccessedFileError = "No data exist for the specified file name",
                                         UnProcessedFileName = fileInfo.Filename
                                     });
@@ -81,7 +90,8 @@ namespace DirectoryFileReader
                             }
                             else
                             {
-                                FileInformation.ValidateAndMoveFile(fileInfo.UnProcessedpath, file, fileInfo.UnProcessedpathFile);
+                                unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                                unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                                 unProcessedFileInformation.Add(new UnProcessedFileInformation
                                 {
                                     UnProccessedFileError = "No record exist for the specified file name (File has empty record)",
@@ -92,7 +102,8 @@ namespace DirectoryFileReader
                         }
                         else
                         {
-                            FileInformation.ValidateAndMoveFile(fileInfo.UnProcessedpath, file, fileInfo.UnProcessedpathFile);
+                            unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                            unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                             unProcessedFileInformation.Add(new UnProcessedFileInformation
                             {
                                 UnProccessedFileError = "oops, An error occurred dont tell anyone , Just contact BuariSulaimon@gmail.com",
@@ -160,17 +171,20 @@ namespace DirectoryFileReader
 
                     foreach (string file in myFiles)
                     {
-                        var fileInfo = FileInformation.GetFileInformation(new FileInformationRequest
+                        var fileInfo = unitOfWork.FileInformation.GetFileInformation(new FileInformationRequest
                         {
                             Day = day,
                             File = file,
                             File_path = FolderPath
                         });
 
-                        if (FileInformation.ValidateAndCopyFile(fileInfo.Splitedpath, file, fileInfo.SplitedpathFile)) // Move file to a specific directory for Processing
+                        if (unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.Splitedpath) &&
+                            unitOfWork.CopyFiles.CopyFile(file, fileInfo.SplitedpathFile)) // Move file to a specific directory for Processing
                         {
-                            if (FileInformation.ValidFileType(fileInfo.Extension))
+                            if (!unitOfWork.ValidateFile.ValidFileType(fileInfo.Extension))
                             {
+                                unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                                unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                                 unProcessedFileInformation.Add(new UnProcessedFileInformation
                                 {
                                     UnProccessedFileError = "File type in the specified directory must be .XLS,.XLSX,.CSV",
@@ -181,7 +195,7 @@ namespace DirectoryFileReader
                             }
 
 
-                            var excelOrCsvData = await FileInformation.ReadFileDataAsync(fileInfo);
+                            var excelOrCsvData = await unitOfWork.FileData.ReadFileDataAsync(fileInfo); ;
                             if (excelOrCsvData.Tables.Count > 0)
                             {
                                 if (excelOrCsvData.Tables[0].Rows.Count > 0)
@@ -194,12 +208,14 @@ namespace DirectoryFileReader
                                         ProcessedFileData = fileData,
                                         ProcessedFileName = fileInfo.Filename
                                     });
-                                    FileInformation.ValidateAndMoveFile(fileInfo.Processedpath, file, fileInfo.ProcessedpathFile);
+                                    unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.Processedpath);
+                                    unitOfWork.MoveFiles.MoveFile(file, fileInfo.ProcessedpathFile);
                                     fileProcessedCount++;
                                 }
                                 else
                                 {
-                                    FileInformation.ValidateAndMoveFile(fileInfo.UnProcessedpath, file, fileInfo.UnProcessedpathFile);
+                                    unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                                    unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                                     unProcessedFileInformation.Add(new UnProcessedFileInformation
                                     {
                                         UnProccessedFileError = "No data exist for the specified file name",
@@ -210,7 +226,8 @@ namespace DirectoryFileReader
                             }
                             else
                             {
-                                FileInformation.ValidateAndMoveFile(fileInfo.UnProcessedpath, file, fileInfo.UnProcessedpathFile);
+                                unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                                unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                                 unProcessedFileInformation.Add(new UnProcessedFileInformation
                                 {
                                     UnProccessedFileError = "No record exist for the specified file name (File has empty record)",
@@ -221,7 +238,8 @@ namespace DirectoryFileReader
                         }
                         else
                         {
-                            FileInformation.ValidateAndMoveFile(fileInfo.UnProcessedpath, file, fileInfo.UnProcessedpathFile);
+                            unitOfWork.ValidateFile.DirectoryExistorCreated(fileInfo.UnProcessedpath);
+                            unitOfWork.MoveFiles.MoveFile(file, fileInfo.UnProcessedpathFile);
                             unProcessedFileInformation.Add(new UnProcessedFileInformation
                             {
                                 UnProccessedFileError = "oops, An error occurred dont tell anyone , Just contact BuariSulaimon@gmail.com",

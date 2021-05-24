@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using DirectoryFileReader.Interfaces.CSVReader;
 using System.Data;
 using System.IO;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace DirectoryFileReader.CSV
+namespace DirectoryFileReader.Services.CSV
 {
-    internal class CSVReader
+    internal class CSVReader : ICSVReader
     {
-        internal DataSet ConvertCSVtoDataTable(string strFilePath)
+        public DataSet ConvertCSVtoDataTable(string strFilePath)
         {
             DataSet dataSet = new DataSet();
             DataTable dt = new DataTable();
@@ -29,7 +27,7 @@ namespace DirectoryFileReader.CSV
                         dr[i] = rows[i];
                     }
                     dt.Rows.Add(dr);
-;
+                    ;
                 }
                 dataSet.Tables.Add(dt);
             }
@@ -38,7 +36,7 @@ namespace DirectoryFileReader.CSV
         }
 
 
-        internal async Task<DataSet> ConvertCSVtoDataTableAsync(string strFilePath)
+        public async Task<DataSet> ConvertCSVtoDataTableAsync(string strFilePath)
         {
             DataSet dataSet = new DataSet();
             DataTable dt = new DataTable();
@@ -62,7 +60,7 @@ namespace DirectoryFileReader.CSV
                     }
                     dt.Rows.Add(dr);
                 }
-                dataSet.Tables.Add(dt); 
+                dataSet.Tables.Add(dt);
             }
 
             return dataSet;
