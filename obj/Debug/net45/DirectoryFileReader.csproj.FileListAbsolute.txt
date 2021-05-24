@@ -10,3 +10,4 @@ C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReade
 C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net45\Spire.License.dll
 C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net45\Spire.Pdf.dll
 C:\Users\Ayo\source\repos\DirectoryFileReader\bin\Debug\net45\Spire.XLS.dll
+C:\Users\Ayo\source\repos\DirectoryFileReader\obj\Debug\net45\DirectoryFileReader.csprojAssemblyReference.cache
